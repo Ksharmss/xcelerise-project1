@@ -1,5 +1,6 @@
 <div class="w-100 bg-color mt-20 text-style">
-<app-nav-bar></app-nav-bar>
+    <app-nav-bar></app-nav-bar>
+
     <div class="main-container">
         <div *ngFor="let pokemon of pokemons; let i = index" class="main-subcontainer">
             <div class="bg-{{getType(pokemon)}} card-radius" [routerLink]="['/view', pokemon.name]">
@@ -15,8 +16,9 @@
                             class="badge border color-badge  rounded-pill me-1 bg-{{getType(pokemon)}}">
                             {{type.type.name}}
                         </span>
-                        <span><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{pokemon.id}}.png"
-                            class="img-fluid" style="height:50px" alt=""></span>
+                        <span><img
+                                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{pokemon.id}}.png"
+                                class="img-fluid" style="height:50px" alt=""></span>
                     </div>
                 </div>
             </div>

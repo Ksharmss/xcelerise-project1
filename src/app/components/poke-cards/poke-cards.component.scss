@@ -28,4 +28,13 @@
 .card-radius
 {
     border-radius: 15px;
+    transition: 0.3s all ease-in-out;
 }
+
+.card-radius:hover
+{
+    border-radius: 15px;
+    transform: scale(0.8);
+}
+
+

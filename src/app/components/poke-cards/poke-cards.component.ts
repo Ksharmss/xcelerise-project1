@@ -8,16 +8,15 @@ import { NavBarComponent } from '../nav-bar/nav-bar.component';
 @Component({
   selector: 'app-poke-cards',
   standalone: true,
-  imports: [RouterModule,CommonModule,NavBarComponent],
+  imports: [RouterModule, CommonModule, NavBarComponent],
   templateUrl: './poke-cards.component.html',
   styleUrl: './poke-cards.component.scss'
 })
 export class PokeCardsComponent implements OnInit, OnDestroy {
-  subscriptions: Subscription[]=[];
-  loading: boolean=false;
+  subscriptions: Subscription[] = [];
+  loading: boolean = false;
 
-  constructor(private pikachAppService : PikachAppService)
-  {
+  constructor(private pikachAppService: PikachAppService) {
 
   }
 
@@ -30,9 +29,11 @@ export class PokeCardsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    console.warn(this.pokemons)
     if (!this.pokemons.length) {
       this.loadMore();
     }
+
   }
 
   ngOnDestroy(): void {
@@ -50,7 +51,9 @@ export class PokeCardsComponent implements OnInit, OnDestroy {
     }, error => console.log('Error Occurred:', error), () => this.loading = false);
   }
 
+
   getType(pokemon: any): string {
     return this.pikachAppService.getType(pokemon);
   }
+
 }

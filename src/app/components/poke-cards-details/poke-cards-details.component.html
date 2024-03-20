@@ -32,8 +32,9 @@
                                         </ul>
                                     </div>
                                     <div class="col-sm-6">
-                                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{pokemon.id}}.png" alt=""
-                                            class="img-fluid d-block mx-auto" style="width: 300px;">
+                                        <marquee scrollamount="25">  <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{pokemon.id}}.png" alt=""
+                                            class="img-fluid d-block mx-auto" style="width: 300px;"></marquee>
+                                      
                                     </div>
                                 </div>
                             </div>
@@ -61,8 +62,11 @@
                                     <div class="card" [routerLink]="['/view', evolution.name]">
                                         <div class="card-body">
                                             <h4 class="card-title text-center mb-3 ">{{evolution.name }}</h4>
-                                            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{evolution.id}}.png" alt=""
+                                          
+                                                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/{{evolution.id}}.png" alt=""
                                                 class="img-fluid d-block mx-auto" style="width: 150px;">
+                                           
+                                          
                                         </div>
                                     </div>
                                 </div>
