@@ -1,0 +1,29 @@
+:host ::ng-deep .p-tabview .p-tabview-nav{
+    display: flex;
+    margin-bottom: 0px;
+    padding-left: 3rem;
+  }
+
+
+  :host ::ng-deep .p-tabview .p-tabview-nav .p-tabview-nav-link
+  {
+    text-decoration: none;
+    cursor: pointer;
+    text-transform: capitalize;
+    padding: 1rem;
+    border-right: 1px solid grey;
+  }
+
+  :host ::ng-deep .p-tabview .p-tabview-nav .p-tabview-nav-link:active
+  {
+    text-decoration: underline;
+    
+  }
+  .arrow-btn
+  {
+    position: absolute;
+    top: 12px;
+    left: 10px;
+    cursor: pointer;
+  }
+
