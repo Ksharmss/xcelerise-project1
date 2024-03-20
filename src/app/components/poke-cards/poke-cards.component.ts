@@ -3,11 +3,12 @@ import { PikachAppService } from '../../pikach-app.service';
 import { Subscription, concat } from 'rxjs';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { NavBarComponent } from '../nav-bar/nav-bar.component';
 
 @Component({
   selector: 'app-poke-cards',
   standalone: true,
-  imports: [RouterModule,CommonModule],
+  imports: [RouterModule,CommonModule,NavBarComponent],
   templateUrl: './poke-cards.component.html',
   styleUrl: './poke-cards.component.scss'
 })

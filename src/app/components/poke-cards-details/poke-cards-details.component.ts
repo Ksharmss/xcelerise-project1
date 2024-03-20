@@ -5,12 +5,13 @@ import { ActivatedRoute, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 import { TabViewModule } from 'primeng/tabview';
+import { NavBarComponent } from '../nav-bar/nav-bar.component';
 
 
 @Component({
   selector: 'app-poke-cards-details',
   standalone: true,
-  imports: [RouterModule,CommonModule,TabViewModule],
+  imports: [RouterModule,CommonModule,TabViewModule,NavBarComponent],
   templateUrl: './poke-cards-details.component.html',
   styleUrl: './poke-cards-details.component.scss'
 })

@@ -3,7 +3,9 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    position: relative;
+    top: 7rem;
 }
 .main-subcontainer
 {
@@ -21,4 +23,9 @@
     flex-direction: column!important;
     align-items: center;
 }
+}
+
+.card-radius
+{
+    border-radius: 15px;
 }

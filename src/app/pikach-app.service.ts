@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Environment } from './environment/environment';
+import { environment } from './environment/environment';
+
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class PikachAppService {
   constructor(private http:HttpClient) { }
 
 
-  private url: string = Environment.apiUrl + 'pokemon/';
+  private url: string = environment.apiUrl + 'pokemon/';
   private _pokemons: any[] = [];
   private _next: string = '';
 
@@ -43,12 +44,12 @@ export class PikachAppService {
   }
 
   getEvolution(id: number){
-    const url = `${Environment.apiUrl}evolution-chain/${id}`;
+    const url = `${environment.apiUrl}evolution-chain/${id}`;
     return this.http.get<any>(url);
   }
 
   getSpecies(name: string) {
-    const url = `${Environment.apiUrl}pokemon-species/${name}`;
+    const url = `${environment.apiUrl}pokemon-species/${name}`;
     return this.http.get<any>(url);
   }
 }
