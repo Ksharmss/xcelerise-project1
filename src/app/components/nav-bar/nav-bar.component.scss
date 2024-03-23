@@ -9,8 +9,13 @@
 }
 img
 {
-    height: 80px;
+    height: 67px;
     position: relative;
-    left: 2rem;
     cursor: pointer;
+}
+.sub-header
+{
+    display: flex;
+    padding: 0.4rem;
+    justify-content: space-between;
 }

@@ -29,31 +29,53 @@ export class PokeCardsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    console.warn(this.pokemons)
-    if (!this.pokemons.length) {
+    if (!this.pokemons.length) { // to reduce no. of hit to trigger to data is already there
       this.loadMore();
     }
 
   }
 
-  ngOnDestroy(): void {
-    this.subscriptions.forEach(subscription => subscription ? subscription.unsubscribe() : 0);
-  }
-
+// to load pokemon list
   loadMore(): void {
     this.loading = true;
-    this.subscription = this.pikachAppService.getNext().subscribe(response => {
-      this.pikachAppService.next = response.next;
-      const details = response.results.map((i: any) => this.pikachAppService.get(i.name));
-      this.subscription = concat(...details).subscribe((response: any) => {
-        this.pikachAppService.pokemons.push(response);
-      });
-    }, error => console.log('Error Occurred:', error), () => this.loading = false);
+    this.subscription = this.pikachAppService.getNext().subscribe(
+      (response: any) => {
+        // Update next URL for subsequent loads
+        this.pikachAppService.next = response.next;
+
+        // Fetch details for each Pokemon in the current response
+        const details = response.results.map((pokemon: any) => this.pikachAppService.get(pokemon.name));
+
+        // Concatenate observables to fetch details sequentially
+        this.subscription = concat(...details).subscribe(
+          (pokemonDetails: any) => {
+            // Push fetched Pokemon details to the array
+            this.pikachAppService.pokemons.push(pokemonDetails);
+          },
+          (error: any) => {
+            console.error('Error loading Pokemon details:', error);
+          },
+          () => {
+            // Loading is complete
+            this.loading = false;
+          }
+        );
+      },
+      (error: any) => {
+        console.error('Error loading Pokemon list:', error);
+        this.loading = false;
+      }
+    );
   }
 
 
   getType(pokemon: any): string {
     return this.pikachAppService.getType(pokemon);
+  }
+
+  // Clean up subscription
+  ngOnDestroy(): void {
+    this.subscriptions.forEach(subscription => subscription ? subscription.unsubscribe() : 0);
   }
 
 }

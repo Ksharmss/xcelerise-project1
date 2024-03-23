@@ -1,0 +1,18 @@
+.error
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+ 
+ img{
+    width: 45%;
+    height: 45%;
+ }
+ .back
+ {
+cursor: pointer;
+ }
